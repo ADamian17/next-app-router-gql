@@ -1,19 +1,20 @@
 import { createApolloClient } from "@/libs/apolloClient";
-import { gql } from '@apollo/client';
+import { gql } from "@apollo/client";
+import { useParams } from "next/navigation"
 
-export default async function Home() {
+export default async function BlogPage() {
   const client = createApolloClient();
 
   const { data } = await client.query({
     query: gql`
-      query BlogPage{
-        page(id: "/", idType: URI) {
+      query BlogPage {
+        page(id: "/blog/", idType: URI) {
           id
           uri
           title
         }
       }
-    `
+    `,
   });
 
   return (
