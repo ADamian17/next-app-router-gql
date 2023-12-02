@@ -6,7 +6,7 @@ export default async function BlogDetailPage({ params }: { params: { slug: strin
 
   const { data } = await client.query({
     query: gql`
-      query BlogPage($path: ID!) {
+      query DynamicPage($path: ID!) {
         page(id: $path, idType: URI) {
           id
           uri
