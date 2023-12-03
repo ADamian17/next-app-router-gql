@@ -34,4 +34,6 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
-*/wp-marketing.d.ts
+
+# marketing
+*/*-marketing.d.ts
