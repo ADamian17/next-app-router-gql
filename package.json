@@ -7,7 +7,7 @@
     "dev": "yarn gen && next dev",
     "lint": "next lint",
     "start": "next start",
-    "gen": "graphql-codegen --config codegen.config.js --project builder wp"
+    "gen": "graphql-codegen --config codegen.ts"
   },
   "dependencies": {
     "@apollo/client": "^3.8.7",
