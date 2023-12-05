@@ -1,4 +1,5 @@
 import type { Metadata } from 'next'
+import Link from 'next/link';
 
 import PageFullNavHeader from '@/components/Headers/PageFullNavHeader';
 import PrimaryFooter from '@/components/PrimaryFooter';
