@@ -65,7 +65,6 @@ export default async function Home() {
       <h1>{data?.page?.title}</h1>
 
       {parse(data?.page?.content, options)}
-      {usePageCount.getState().pageCount}
     </main>
   )
 }
