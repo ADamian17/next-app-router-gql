@@ -1,10 +1,10 @@
 import Image from "next/image";
 import Link from "next/link";
 
-export default function MainLayout({ children }: { children: React.ReactNode }) {
+export default function MainLayout({ children, className }: { children: React.ReactNode, className?: string }) {
   return (
     <>
-      <header className="bg-slate-500 p-5 flex justify-between items-center">
+      <header className={`bg-slate-500 p-5 flex justify-between items-center ${className}`}>
         <Link href={"/"}>
           <Image
             src={"/favicon_io/android-chrome-192x192.png"}
