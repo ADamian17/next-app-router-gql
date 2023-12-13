@@ -18,11 +18,11 @@ export default async function BuilderPagesLayout({
   const pageFullNavModelUrls = await getModelUrlPaths("page-full-nav");
   const urlPath = "/" + ((params?.page as string[])?.join("/") || "")
 
-  if (pageModelUrls.map(page => page?.data?.url).includes(urlPath)) {
+  if (pageModelUrls.includes(urlPath)) {
     return <>{pageCondensedNav}</>
   }
 
-  if (pageFullNavModelUrls.map(page => page?.data?.url).includes(urlPath)) {
+  if (pageFullNavModelUrls.includes(urlPath)) {
     return <>{pageFullNav}</>
   }
 

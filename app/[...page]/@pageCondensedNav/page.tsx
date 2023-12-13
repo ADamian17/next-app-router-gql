@@ -1,11 +1,7 @@
-// Example file structure, app/[...page]/page.tsx
-// You could alternatively use src/app/[...page]/page.tsx
-import { RenderBuilderContent } from "@/components/RenderBuilderContent";
-import { builder } from "@builder.io/sdk";
 import { Metadata } from "next";
+import { builder } from "@builder.io/sdk";
 
-// Replace with your Public API Key
-builder.init(process.env.NEXT_PUBLIC_BUILDER_API_KEY as string);
+import { RenderBuilderContent } from "@/components/RenderBuilderContent";
 
 interface PageProps {
   params: {

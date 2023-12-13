@@ -1,8 +1,9 @@
 import type { Metadata } from 'next'
-import Link from 'next/link';
+import { builder } from "@builder.io/sdk";
 
-import PageFullNavHeader from '@/components/Headers/PageFullNavHeader';
-import PrimaryFooter from '@/components/PrimaryFooter';
+import "@/styles/globals.css"
+
+builder.init(process.env.NEXT_PUBLIC_BUILDER_API_KEY as string);
 
 export const metadata: Metadata = {
   title: 'Create Next App',
