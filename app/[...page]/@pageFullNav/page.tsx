@@ -1,6 +1,7 @@
 // Example file structure, app/[...page]/page.tsx
 // You could alternatively use src/app/[...page]/page.tsx
 import { RenderBuilderContent } from "@/components/RenderBuilderContent";
+import MainLayout from "@/layouts/MainLayout";
 import { builder } from "@builder.io/sdk";
 import { Metadata } from "next";
 
@@ -33,9 +34,6 @@ export default async function Page({ params }: PageProps) {
     .toPromise();
 
   return (
-    <>
-      {/* Render the Builder page */}
-      <RenderBuilderContent content={content} model="page-full-nav" />
-    </>
+    <RenderBuilderContent content={content} model="page-full-nav" />
   );
 }

@@ -2,6 +2,7 @@ import { Metadata } from "next";
 import { builder } from "@builder.io/sdk";
 
 import { RenderBuilderContent } from "@/components/RenderBuilderContent";
+import MainLayout from "@/layouts/MainLayout";
 
 interface PageProps {
   params: {
@@ -29,9 +30,6 @@ export default async function CondensedPage({ params }: PageProps) {
     .toPromise();
 
   return (
-    <>
-      {/* Render the Builder page */}
-      <RenderBuilderContent content={content} model="page" />
-    </>
+    <RenderBuilderContent content={content} model="page" />
   );
 }

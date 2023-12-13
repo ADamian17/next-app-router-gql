@@ -1,5 +1,6 @@
 import { builder } from '@builder.io/sdk';
 import getModelUrlPaths from '@/utils/getModelUrlPaths';
+import MainLayout from '@/layouts/MainLayout';
 
 builder.init(process.env.NEXT_PUBLIC_BUILDER_API_KEY as string);
 
@@ -19,12 +20,12 @@ export default async function BuilderPagesLayout({
   const urlPath = "/" + ((params?.page as string[])?.join("/") || "")
 
   if (pageModelUrls.includes(urlPath)) {
-    return <>{pageCondensedNav}</>
+    return <MainLayout>{pageCondensedNav}</MainLayout>
   }
 
   if (pageFullNavModelUrls.includes(urlPath)) {
-    return <>{pageFullNav}</>
+    return <MainLayout>{pageFullNav}</MainLayout>
   }
 
-  return <>{children}</>
+  return <MainLayout>{children}</MainLayout>
 }
