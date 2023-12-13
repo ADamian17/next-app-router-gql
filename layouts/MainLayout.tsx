@@ -1,23 +1,33 @@
+import Image from "next/image";
 import Link from "next/link";
 
 export default function MainLayout({ children }: { children: React.ReactNode }) {
   return (
     <>
-      <header>
-        <ul className="flex gap-2">
-          <li>
-            <Link href={"/"}>home</Link>
+      <header className="bg-slate-500 p-5 flex justify-between items-center">
+        <Link href={"/"}>
+          <Image
+            src={"/favicon_io/android-chrome-192x192.png"}
+            width={30}
+            height={30}
+            alt='icon'
+          />
+        </Link>
+
+        <ul className="flex gap-4 items-center capitalize">
+          <li className="hover:bg-slate-300 p-1">
+            <Link href={"/page-one"}>page one</Link>
           </li>
-          <li>
-            <Link href={"/page-one"}>page-one</Link>
+
+          <li className="hover:bg-slate-300 p-1">
+            <Link href={"/page-two"}>page two</Link>
           </li>
-          <li>
-            <Link href={"/page-two"}>page-two</Link>
-          </li>
-          <li>
+
+          <li className="hover:bg-slate-300 p-1">
             <Link href={"/blogs"}>blogs</Link>
           </li>
-          <li>
+
+          <li className="hover:bg-slate-300 p-1">
             <Link href={"/contact"}>contact</Link>
           </li>
         </ul>

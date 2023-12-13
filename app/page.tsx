@@ -39,7 +39,7 @@ export default async function Home() {
 
   return (
     <MainLayout>
-      <h1>{data?.page?.title}</h1>
+      <h1 className='text-4xl font-medium'>{data?.page?.title}</h1>
 
       {parse(data?.page?.content, options)}
     </MainLayout>
