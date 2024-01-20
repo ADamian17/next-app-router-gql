@@ -1,32 +1,51 @@
 "use client"
 
 import { setPageInfo } from "@/utils/action";
+import Link from "next/link";
+import { useParams, useRouter } from "next/navigation";
+import { useEffect, useState } from "react";
 
 type PaginationControllersType = {
-  hasPreviousPage: boolean;
-  hasNextPage: boolean;
-  startCursor: string;
+  baseUrl: string,
   endCursor: string;
+  hasNextPage: boolean;
+  hasPreviousPage: boolean;
+  pageCount: number,
+  startCursor: string;
 };
 
 const PaginationControllers: React.FC<PaginationControllersType> = ({
-  startCursor,
-  hasPreviousPage,
+  endCursor,
   hasNextPage,
-  endCursor
+  hasPreviousPage,
+  startCursor,
+  pageCount,
+  baseUrl
 }) => {
+  const parentSegment = `${baseUrl}/page/`
+  const nextUrl = parentSegment + (pageCount + 1)
+  const prevUrl = pageCount > 2 ? parentSegment + (pageCount - 1) : baseUrl
+  const postPerPage = 2;
+
   const handlePrev = () => {
+    if (pageCount <= 2) {
+      setPageInfo({
+        deletePageInfo: true,
+      })
+      return;
+    }
+
     setPageInfo({
       first: null,
       after: null,
-      last: 2,
-      before: startCursor,
+      last: postPerPage,
+      before: startCursor
     })
   }
 
   const handleNext = () => {
     setPageInfo({
-      first: 2,
+      first: postPerPage,
       after: endCursor,
       last: null,
       before: null,
@@ -36,15 +55,15 @@ const PaginationControllers: React.FC<PaginationControllersType> = ({
   return (
     <div className='flex gap-5'>
       {hasPreviousPage && (
-        <button onClick={handlePrev} className='bg-slate-400 p-2'>
+        <Link href={prevUrl} onClick={handlePrev} className='bg-slate-400 p-2'>
           prev
-        </button>
+        </Link>
       )}
 
       {hasNextPage && (
-        <button onClick={handleNext} className='bg-slate-400 p-2'>
+        <Link href={nextUrl} onClick={handleNext} className='bg-slate-400 p-2'>
           next
-        </button>
+        </Link>
       )}
     </div>
   )

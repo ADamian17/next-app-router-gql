@@ -1,7 +1,12 @@
 /** @type {import('next').NextConfig} */
 
 const nextConfig = {
-  trailingSlash: true
-}
+  trailingSlash: true,
+  logging: {
+    fetches: {
+      fullUrl: true,
+    },
+  },
+};
 
-module.exports = nextConfig
+module.exports = nextConfig;

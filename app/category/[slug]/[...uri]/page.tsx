@@ -1,9 +1,10 @@
 import MainLayout from "@/layouts/MainLayout";
-import { getCategory } from "../category.query";
+
 import { notFound } from "next/navigation";
 import PaginationControllers from "@/components/PaginationControllers";
+import { getCategory } from "../../category.query";
 
-const Category = async ({ params }: { params: { slug: string } }) => {
+const Category = async ({ params }: { params: { slug: string, uri: string[] } }) => {
   const data = await getCategory();
 
   if (!data?.posts?.nodes) notFound()
@@ -23,7 +24,7 @@ const Category = async ({ params }: { params: { slug: string } }) => {
         hasNextPage={posts?.pageInfo?.hasNextPage}
         startCursor={posts?.pageInfo?.startCursor}
         endCursor={posts?.pageInfo?.endCursor}
-        pageCount={1}
+        pageCount={Number(params.uri[1])}
         baseUrl={`/category/${params?.slug}`}
       />
     </MainLayout>
